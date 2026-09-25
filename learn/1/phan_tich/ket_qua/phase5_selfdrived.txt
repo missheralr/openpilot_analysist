@@ -1,0 +1,51 @@
+
+==============================================================================
+5.1  MAY TRANG THAI
+==============================================================================
+    selfdrive/selfdrived/state.py:7  SOFT_DISABLE_TIME = 3  # seconds
+    selfdrive/selfdrived/state.py:8  ACTIVE_STATES = (State.enabled, State.softDisabling, State.overriding)
+
+    Trang thai do tren log: {'disabled': 351, 'enabled': 5553, 'overriding': 76}
+
+==============================================================================
+5.2  HE THONG SU KIEN
+==============================================================================
+    su kien                 so lan  co mang theo
+    cruiseMismatch              58  khong co co nao
+    laneChange                   4  ['warning']
+    steerOverride                4  ['overrideLateral']
+    pcmEnable                    1  ['enable']
+    preLaneChangeLeft            1  ['warning']
+
+    cruiseMismatch khong mang co nao vi dinh nghia cua no bi chu thich tat:
+    selfdrive/selfdrived/events.py:281      #ET.PERMANENT: ImmediateDisableAlert("openpilot failed to cancel cruise"),
+
+==============================================================================
+5.3  LOP AN TOAN PANDA
+==============================================================================
+    safetyModel = vinfastVf6, safetyParam = 1, loai panda = cuatro
+    controlsAllowed bat 100% thoi gian
+    opendbc/safety/lateral.h:177  bool steer_angle_cmd_checks(int desired_angle, bool steer_control_enabled, const AngleSteeringLimits limits) {
+    opendbc/safety/lateral.h:154  static bool rt_angle_rate_limit_check(AngleSteeringLimits limits) {
+
+==============================================================================
+5.4  AN TOAN VINFAST TRONG KHO MA CONG KHAI
+==============================================================================
+    // VinFast enforcement lives in flashed Panda firmware (build panda with the real headers present).
+      controls_allowed = true;
+      return true;
+    -> vo rong cho moi ban tin di qua; kiem tra that nam trong firmware da nap
+
+==============================================================================
+8.1  BAY SCHEMA — vi sao phai doc log bang schema cua chinh ban fork
+==============================================================================
+    ban fork: chi so 35 -> vinfast   | chi so 36 -> vinfastVf6
+
+    Doc bang schema fork: safetyModel = vinfastVf6, carFingerprint = VINFAST_VF6
+
+    Cac ban tin de bi 'bien mat' neu dung nham schema:
+      liveDelay                 240 ban tin
+      liveParameters           1200 ban tin
+      liveTracks               1468 ban tin
+      liveTorqueParameters      240 ban tin
+      livePose                 1200 ban tin

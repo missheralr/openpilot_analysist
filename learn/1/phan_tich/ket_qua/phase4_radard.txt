@@ -1,0 +1,64 @@
+
+==============================================================================
+4.0  BAN FORK DONG GOI radard THANH BYTECODE
+==============================================================================
+    /home/bop/qmpilot/selfdrive/controls/radard.py: 453 dong
+    dong dau: """_BYTECODE_SHIM — logic is loaded from __pycache__/radard_impl.*.pyc (
+    -> ma nguon that nam trong __pycache__/radard_impl.pyc; cac doan trich
+       trong tai lieu lay tu ban goc cua comma, xem duoi day.
+
+==============================================================================
+4.2  BO LOC KALMAN (trich tu ban goc)
+==============================================================================
+    (chua truyen repo goc — bo qua self.A = [[1.0, dt])
+    (chua truyen repo goc — bo qua hardcoding a lookup table)
+    (chua truyen repo goc — bo qua self.aLeadTau.x = _LEAD_ACCEL_TAU)
+
+==============================================================================
+4.3  GHEP RADAR VOI THI GIAC (trich tu ban goc)
+==============================================================================
+    (chua truyen repo goc — bo qua def laplacian_pdf)
+    (chua truyen repo goc — bo qua prob_d = laplacian_pdf)
+    (chua truyen repo goc — bo qua dist_sane =)
+    (chua truyen repo goc — bo qua RADAR_TO_CAMERA =)
+
+==============================================================================
+4.1  RADAR TREN XE NAY CHO GI
+==============================================================================
+    so ban tin liveTracks   : 1468
+    so doi tuong moi ban tin: 0 diem 37%, 1 diem 47%, 2 diem 16%
+    tong so diem            : 1163
+    co measured (do moi)    : 0%
+    co van toc khac 0       : 61%
+    khoang cach trung vi    : 55.4 m
+
+==============================================================================
+4.6  THI GIAC BAO KHOANG CACH HUT BAO NHIEU — CHAM BANG RADAR
+==============================================================================
+    Ghep frame qua mdMonoTime: 1200/1201 khop tuyet doi, khong noi suy
+
+    Kiem tra quy uoc he quy chieu tren 547 khung hinh THI GIAC THUAN:
+      x[0] - dRel = 1.520 m, do lech chuan 0.000   -> dung bang RADAR_TO_CAMERA = 1.52
+
+    Tren 242 khung hinh co CA radar lan thi giac:
+      lech co he thong   : +0.20 m  (thi giac doan GAN hon radar)
+      do tan mac con lai : 2.10 m
+      xStd model tu bao  : 9.92 m
+      ty le sai so / xStd: 0.20
+
+      cu ly theo radar     n      lech   tuong doi
+
+    Nguong chap nhan ghep o 25 m = max(0.25*25, 5.0) = 6.25 m -> lech 3.6 m van duoc coi la khop
+
+==============================================================================
+4.7  VI SAO CHI MOT PHAN SO KHUNG HINH CO RADAR HAU THUAN
+==============================================================================
+    Tong the: 37% khung hinh co lead duoc radar hau thuan
+
+                        nhom      n   % co radar
+                  11-25 km/h     54           6%
+                tren 25 km/h    810          39%
+            vat cach 10-20 m     49           6%
+          vat cach tren 30 m    810          39%
+
+    Muc tieu radar khong ben: doi so hieu 30 lan trong 317 khung hinh, dung qua 26 so hieu

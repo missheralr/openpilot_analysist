@@ -1,0 +1,64 @@
+
+==============================================================================
+2.1  XE NAY DIEU KHIEN THEO GOC HAY MO-MEN?
+==============================================================================
+    carParams.steerControlType = angle
+    carParams.lateralTuning    = pid
+    Kieu bo dieu khien trong log: {'angleState': 5981}
+    actuators.torque o khung dau = 0.0
+    selfdrive/controls/controlsd.py:103      if self.CP.steerControlType == car.CarParams.SteerControlType.angle:
+    selfdrive/controls/controlsd.py:303        if self.CP.steerControlType == car.CarParams.SteerControlType.angle:
+    selfdrive/controls/controlsd.py:331      if self.CP.steerControlType == car.CarParams.SteerControlType.angle:
+
+==============================================================================
+2.2  THIEN LECH TRAI RIENG CHO VINFAST
+==============================================================================
+    selfdrive/controls/controlsd.py:180      if self.CP.brand == "vinfast" and getattr(self.CP, "carFingerprint", "") == "VINFAST_VF9":
+    selfdrive/controls/controlsd.py:202      if self.CP.brand == "vinfast" and CC.latActive and not self.use_curvature_tune_model:
+    selfdrive/controls/controlsd.py:226          curv_scale = 0.002
+
+    n = 1113 khung hinh dang lai tu dong
+    tinh huong                       n   thien lech   so voi lenh
+    gan nhu di thang               226      0.00019         127%
+    duong cong nhe                 248      0.00017          17%
+    dang vao cua                   639      0.00006           2%
+    TOAN BO                       1113      0.00013           6%
+
+    Y nghia vat ly tren duong thang: 0.00019 1/m o 22 km/h
+      -> gia toc ngang 0.007 m/s2, lech 0.03 m sau 3 giay
+
+==============================================================================
+2.3  GIOI HAN ISO VA THAM SO XE HOC DUOC
+==============================================================================
+    selfdrive/controls/lib/drive_helpers.py:14  MAX_LATERAL_JERK = 5.0  # m/s^3
+    selfdrive/controls/lib/drive_helpers.py:15  MAX_LATERAL_ACCEL_NO_ROLL = 3.0  # m/s^2
+
+       toc do   do cong toi da   ban kinh nho nhat
+        22 km/h          0.0803                 12 m
+        60 km/h          0.0108                 93 m
+       100 km/h          0.0039                257 m
+
+    (doc tu ban tin 'liveParameters')
+    tham so                      cau hinh goc    hoc duoc
+    steerRatio                          15.50       15.14
+    stiffnessFactor                      1.00        0.98
+    angleOffsetDeg                       0.00       -0.83
+
+==============================================================================
+2.4  GOC CO BAN vs PHAN PI — VA XE THUC HIEN DUOC BAO NHIEU
+==============================================================================
+    n = 5554 khung hinh dang lai tu dong
+    goc co ban tu do cong : trung vi |.| = 4.25 do
+    phan PI cong them     : trung vi |.| = 5.23 do, P90 = 10.26 do
+    cham tran 22 do       : 0.0% so khung hinh
+
+    vo lang thuc = k x LENH DAY DU : k = 0.549  (tuong quan 0.911)
+    vo lang thuc = k x GOC CO BAN  : k = 0.949  (tuong quan 0.960)
+
+    Kiem tra xem co phai do TRE khong — dich lenh ve truoc roi do lai:
+      dich 0.00s: sai so 5.03 do
+      dich 0.10s: sai so 5.03 do
+      dich 0.20s: sai so 5.03 do
+      dich 0.30s: sai so 5.09 do
+      dich 0.40s: sai so 5.15 do
+    Sai so KHONG giam khi dich => khong phai tre, ma la thieu hut thuong truc.

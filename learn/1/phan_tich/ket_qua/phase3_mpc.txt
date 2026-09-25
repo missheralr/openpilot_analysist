@@ -1,0 +1,74 @@
+
+==============================================================================
+3.2  TRANG THAI VA BIEN DIEU KHIEN
+==============================================================================
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:99    model.x = vertcat(x_ego, v_ego, a_ego)
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:103    model.u = vertcat(j_ego)
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:49  N = 12
+    -> bien dieu khien la DO GIAT; gia toc la trang thai nen khong the nhay bac
+
+==============================================================================
+3.3  TRONG SO HAM MUC TIEU
+==============================================================================
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:35  X_EGO_OBSTACLE_COST = 3.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:36  X_EGO_COST = 0.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:37  V_EGO_COST = 0.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:38  A_EGO_COST = 0.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:40  A_CHANGE_COST = 200.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:39  J_EGO_COST = 5.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:41  DANGER_ZONE_COST = 100.
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:44  LIMIT_COST = 1e6
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:43  LEAD_DANGER_FACTOR = 0.75
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:278      cost_weights = [X_EGO_OBSTACLE_COST, X_EGO_COST, V_EGO_COST, A_EGO_COST, jerk_factor * a_change_cost, jerk_factor * J_EGO_COST]
+    -> hai trong so cuoi con nhan them he so theo che do lai (aggressive = 0,5)
+
+==============================================================================
+3.4  MOI THU DEU QUY VE MOT VAT CAN
+==============================================================================
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:87  def get_stopped_equivalence_factor(v_lead):
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:357      self.source = MPC_SOURCES[np.argmin(x_obstacles[0])]
+
+    Nguon quyet dinh do tren log: {'e2e': '77%', 'cruise': '19%', 'lead0': '2%', 'lead1': '2%'}
+
+==============================================================================
+3.5  KHOANG CACH MONG MUON
+==============================================================================
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:90  def get_safe_obstacle_distance(v_ego, t_follow):
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:56  COMFORT_BRAKE = 2.5
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:57  STOP_DISTANCE = 6.0  # keep in lockstep with vn_follow.STOP_DISTANCE
+
+    Che do lai tren xe: relaxed  ->  t_follow = 1.75 s
+       toc do      tong   =   phanh +  tfollow + dung
+        10 km/h     12.4 m   =     1.5 +      4.9 + 6.0
+        20 km/h     21.9 m   =     6.2 +      9.7 + 6.0
+        30 km/h     34.5 m   =    13.9 +     14.6 + 6.0
+        40 km/h     50.1 m   =    24.7 +     19.4 + 6.0
+        60 km/h     90.7 m   =    55.6 +     29.2 + 6.0
+
+    Doi chieu tren 810 khung hinh dang giu ga, co xe truoc, v > 2 m/s:
+      khoang cach THUC TE : 58.8 m
+      MPC MONG MUON       : 52.1 m
+      ty le               : 1.13
+
+==============================================================================
+3.6  BO GIAI
+==============================================================================
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:45  ACADOS_SOLVER_TYPE = 'SQP_RTI'
+    selfdrive/controls/lib/longitudinal_mpc_lib/long_mpc.py:201    ocp.solver_options.qp_solver = 'PARTIAL_CONDENSING_HPIPM'
+
+    Thoi gian giai do tren log: trung vi 0.60 ms, P99 13.09 ms  (ngan sach 50 ms)
+
+==============================================================================
+3.7  MANG NO-RON CHEN VAO BANG PHEP MIN
+==============================================================================
+    selfdrive/controls/lib/longitudinal_planner.py:357        output_a_target = min(output_a_target_e2e, output_a_target_mpc)
+    -> model chi duoc phep lam xe CHAM LAI, khong bao gio duoc ga manh hon MPC
+
+    Cac lop gioi han cuoi:
+    selfdrive/controls/lib/longitudinal_planner.py:22  A_CRUISE_MAX_VALS = [1.6, 1.2, 0.8, 0.6]
+    selfdrive/controls/lib/longitudinal_planner.py:23  A_CRUISE_MAX_BP = [0., 10.0, 25., 40.]
+    selfdrive/controls/lib/longitudinal_planner.py:25  ALLOW_THROTTLE_THRESHOLD = 0.4
+    opendbc_repo/opendbc/car/interfaces.py:28  ACCEL_MAX = 2.0
+    opendbc_repo/opendbc/car/interfaces.py:29  ACCEL_MIN = -3.5
+
+    aTarget do tren log: trung vi +0.051, P10 -0.20, P90 +0.45 m/s2

@@ -1,0 +1,63 @@
+
+==============================================================================
+1.1  HAI MANG: thi giac va chinh sach
+==============================================================================
+    selfdrive/modeld/modeld.py:136      vision_output, on_policy_output = self.run_policy(
+
+==============================================================================
+1.2  KY UC CUA MODEL
+==============================================================================
+    selfdrive/modeld/compile_modeld.py:121    fb = policy_input_shapes['features_buffer']  # (1, 25, 512)
+    selfdrive/modeld/compile_modeld.py:190        'features_buffer': feat_buf,
+    selfdrive/modeld/modeld.py:98      self.frame_skip = ModelConstants.MODEL_RUN_FREQ // ModelConstants.MODEL_CONTEXT_FREQ
+    selfdrive/modeld/constants.py:18    MODEL_CONTEXT_FREQ = 5 # "model_trained_fps"
+    -> frame_skip = 20 / 5 = 4 ; bo dem 25 mau x 4 frame / 20 Hz = 5,0 giay
+    -> anh vao: (1, 12, 128, 256) = 2 khung x 6 kenh, hai khung cach nhau 4 frame = 0,2 s
+
+==============================================================================
+1.3  DESIRE LA XUNG, KHONG PHAI TRANG THAI
+==============================================================================
+    selfdrive/modeld/modeld.py:124      self.npy['desire'][:] = np.where(inputs['desire_pulse'] - self.prev_desire > .99, inputs['desire_pulse'], 0)
+
+==============================================================================
+1.4  MOI DAU RA DEU KEM DO LECH CHUAN
+==============================================================================
+    selfdrive/modeld/parse_model_outputs.py:52      pred_std = safe_exp(raw[:,:,n_values: 2*n_values])
+
+     chi so   thoi diem   yStd trung vi
+          6       0.35s          0.010 m
+         10       0.98s          0.064 m
+         14       1.91s          0.155 m
+         18       3.16s          0.274 m
+         32      10.00s          1.805 m
+
+    CANH BAO: luoi thoi gian la ham bac hai nen khong co moc tron.
+    Chi so 16 KHONG phai 2 giay ma la 2.5 giay.
+    Moc 1 / 2 / 3 giay gan nhat la chi so 10 / 14 / 18.
+
+    Quy dao KHONG dung da gia thuyet trong ban model nay:
+    selfdrive/modeld/parse_model_outputs.py:113      self.parse_mdn('plan', outs, in_N=0, out_N=0, out_shape=(ModelConstants.IDX_N, ModelConstants.PLAN_WIDTH))
+    selfdrive/modeld/parse_model_outputs.py:106      lead_in_N, lead_out_N = (ModelConstants.LEAD_MHP_N, ModelConstants.LEAD_MHP_SELECTION) if lead_mhp else (0, 0)
+
+==============================================================================
+1.5  LENH LAI LA GIA TOC NGANG
+==============================================================================
+    selfdrive/modeld/modeld.py:55      desired_curvature = model_output['action'][0,0] / (max(1.0, v_ego))**2
+
+    Khung hinh dau: desiredCurvature = -0.02013 1/m, v = 5.21 m/s
+    -> gia toc ngang tuong ung = k*v^2 = -0.546 m/s2
+
+==============================================================================
+1.6  DO TRE VA TAM NHIN CUA LENH LAI
+==============================================================================
+    selfdrive/modeld/modeld.py:299      lat_action_t = lat_delay + frame_delay + action_delay
+    selfdrive/modeld/modeld.py:35  LAT_SMOOTH_SECONDS = 0.0
+    selfdrive/modeld/modeld.py:83      self.LAT_SMOOTH_SECONDS = LAT_SMOOTH_SECONDS
+
+    liveDelay.lateralDelay (hoc truc tuyen) = 0.3255 s  [trang thai estimated, hieu chuan 100%]
+    carParams.steerActuatorDelay (cau hinh)  = 0.050 s
+    frame_delay + action_delay               = 0.075 s
+    => lat_action_t  = 0.401 s   (o 60 km/h la 6.7 m phia truoc)
+    => long_action_t = 0.875 s
+
+    modelExecutionTime: trung vi 28.1 ms, P90 28.5 ms  (ngan sach 50 ms)
