@@ -1,0 +1,143 @@
+Tim thay 52 segment tu 1 route
+
+  [1/52] data/segment_0: 4 frame co radar, 144 frame co lead, 0 su kien
+  [2/52] data/segment_1: 11 frame co radar, 541 frame co lead, 0 su kien
+  [3/52] data/segment_2: 55 frame co radar, 504 frame co lead, 0 su kien
+  [4/52] data/segment_3: 480 frame co radar, 1178 frame co lead, 0 su kien
+  [5/52] data/segment_4: 814 frame co radar, 557 frame co lead, 0 su kien
+  [6/52] data/segment_5: 1041 frame co radar, 323 frame co lead, 0 su kien
+  [7/52] data/segment_6: 727 frame co radar, 0 frame co lead, 0 su kien
+  [8/52] data/segment_7: 834 frame co radar, 531 frame co lead, 0 su kien
+  [9/52] data/segment_8: 685 frame co radar, 1187 frame co lead, 0 su kien
+  [10/52] data/segment_9: 215 frame co radar, 631 frame co lead, 0 su kien
+  [11/52] data/segment_10: 435 frame co radar, 521 frame co lead, 0 su kien
+  [12/52] data/segment_11: 417 frame co radar, 1161 frame co lead, 0 su kien
+  [13/52] data/segment_12: 897 frame co radar, 867 frame co lead, 0 su kien
+  [14/52] data/segment_13: 775 frame co radar, 1055 frame co lead, 0 su kien
+  [15/52] data/segment_14: 575 frame co radar, 1058 frame co lead, 0 su kien
+  [16/52] data/segment_15: 316 frame co radar, 860 frame co lead, 0 su kien
+  [17/52] data/segment_16: 286 frame co radar, 690 frame co lead, 0 su kien
+  [18/52] data/segment_17: 3 frame co radar, 324 frame co lead, 0 su kien
+  [19/52] data/segment_18: 53 frame co radar, 677 frame co lead, 0 su kien
+  [20/52] data/segment_19: 80 frame co radar, 492 frame co lead, 0 su kien
+  [21/52] data/segment_20: 85 frame co radar, 462 frame co lead, 0 su kien
+  [22/52] data/segment_21: 5 frame co radar, 261 frame co lead, 0 su kien
+  [23/52] data/segment_22: 420 frame co radar, 1097 frame co lead, 1 su kien
+  [24/52] data/segment_23: 195 frame co radar, 636 frame co lead, 0 su kien
+  [25/52] data/segment_24: 319 frame co radar, 942 frame co lead, 1 su kien
+  [26/52] data/segment_25: 45 frame co radar, 84 frame co lead, 0 su kien
+  [27/52] data/segment_26: 0 frame co radar, 63 frame co lead, 0 su kien
+  [28/52] data/segment_27: 122 frame co radar, 25 frame co lead, 0 su kien
+  [29/52] data/segment_28: 256 frame co radar, 518 frame co lead, 0 su kien
+  [30/52] data/segment_29: 25 frame co radar, 135 frame co lead, 1 su kien
+  [31/52] data/segment_30: 0 frame co radar, 0 frame co lead, 0 su kien
+  [32/52] data/segment_31: 321 frame co radar, 477 frame co lead, 0 su kien
+  [33/52] data/segment_32: 24 frame co radar, 465 frame co lead, 0 su kien
+  [34/52] data/segment_33: 1077 frame co radar, 120 frame co lead, 0 su kien
+  [35/52] data/segment_34: 776 frame co radar, 856 frame co lead, 0 su kien
+  [36/52] data/segment_35: 306 frame co radar, 1198 frame co lead, 0 su kien
+  [37/52] data/segment_36: 1118 frame co radar, 219 frame co lead, 0 su kien
+  [38/52] data/segment_37: 717 frame co radar, 580 frame co lead, 0 su kien
+  [39/52] data/segment_38: 435 frame co radar, 566 frame co lead, 0 su kien
+  [40/52] data/segment_39: 329 frame co radar, 102 frame co lead, 1 su kien
+  [41/52] data/segment_40: 0 frame co radar, 50 frame co lead, 0 su kien
+  [42/52] data/segment_41: 376 frame co radar, 941 frame co lead, 1 su kien
+  [43/52] data/segment_42: 964 frame co radar, 613 frame co lead, 0 su kien
+  [44/52] data/segment_43: 993 frame co radar, 430 frame co lead, 1 su kien
+  [45/52] data/segment_44: 242 frame co radar, 864 frame co lead, 0 su kien
+  [46/52] data/segment_45: 682 frame co radar, 784 frame co lead, 1 su kien
+  [47/52] data/segment_46: 122 frame co radar, 196 frame co lead, 0 su kien
+  [48/52] data/segment_47: 516 frame co radar, 169 frame co lead, 1 su kien
+  [49/52] data/segment_48: 640 frame co radar, 206 frame co lead, 0 su kien
+  [50/52] data/segment_49: 441 frame co radar, 743 frame co lead, 0 su kien
+  [51/52] data/segment_50: 753 frame co radar, 213 frame co lead, 0 su kien
+  [52/52] data/segment_51: 933 frame co radar, 0 frame co lead, 0 su kien
+
+==============================================================================
+TANG 0 — KIEM KE
+==============================================================================
+Thoi gian 52 phut | 16.0 km | Openpilot giu ga 14.2 km (72% thoi gian)
+Co xe phia truoc: 67% thoi gian | trong do RADAR nhin thay: 54%
+So lan dung han: 38 | dap ga: 0 | dap phanh: 30
+
+Xe: VINFAST_VF6 | ban va phanh VF8/VF9 cua fork co ap dung khong: KHONG
+San nhieu cua uoc luong gia toc: 0.058 m/s2 (tin hieu that 0.334)
+Tin hieu aEgo tren CAN: tuong quan 0.98 nhung he so 3.8x (std 0.084 vs thuc 0.334)
+  -> aEgo BAO NHO hon thuc te ~3.8 lan. longcontrol.py:87 dung
+     error = a_target - CS.aEgo lam phan hoi, nen vong dieu khien nhin thay
+     minh giam toc it hon thuc te.
+Kiem tra cheo bang IMU: tuong quan 0.80 (truc 2/-1)
+
+==============================================================================
+TANG 2 — THI GIAC UOC LUONG KHOANG CACH XE TRUOC CO DUNG KHONG
+==============================================================================
+Dap an = RADAR (n=21940 frame co ca radar lan thi giac)
+  tuong quan +0.967 | he so 1.034 (khop)
+  sai so tong: median 2.20 m | P90 3.87 m | tuong doi 19.0%
+  TACH RA: lech co he thong -1.69 m (thi giac doan NGAN hon)
+           do tan mac con lai 1.10 m  <- day moi la sai so nhan thuc that
+  (openpilot co hang so RADAR_TO_CAMERA = 1.52 m cho khoang cach radar->camera;
+   lech do duoc gan bang con so do thi phan lon la quy doi he quy chieu, khong phai loi nhin)
+  Do tre thi giac so voi radar: +1.00s (sai so nho nhat 1.93 m, tai lech 0: 2.10 m)
+  xStd model tu bao: median 0.95 m | ty le sai-so/xStd = 1.89
+    0-20m: n=16382 sai so 2.24 m (25.3%)
+    20-40m: n= 4363 sai so 1.98 m (7.3%)
+    40-200m: n= 1195 sai so 2.35 m (4.6%)
+
+==============================================================================
+TANG 3 — GIU KHOANG CACH CO AN TOAN KHONG
+==============================================================================
+Khoang cach thoi gian (headway) khi Openpilot giu ga, n=24015:
+  median 3.40s | P10 1.87s | duoi 1.0s: 0.4% | duoi 0.6s: 0.0%
+Thoi gian toi va cham (TTC) khi dang tien gan, n=7454:
+  median 17.8s | P10 5.3s | duoi 3s: 1.0% | duoi 2s: 0.3%
+Doi chieu NGUOI lai: headway median 3.37s | duoi 1.0s: 0.1%
+
+==============================================================================
+TANG 4 — GA-PHANH CO MUOT KHONG
+==============================================================================
+nhom                        n  giat (m/s3)  phanh manh nhat   bam lenh (m/s2)
+Openpilot                1626        0.162           -0.126             0.043
+Nguoi lai                 222        0.227           -0.136             0.316
+
+Phanh manh (duoi -2.0 m/s2): 1.3% so cua so = 1.5 lan/km
+
+Theo nguon quyet dinh cua planner:
+  cruise       n=  565 giat=0.128 bam lenh=0.038
+  e2e          n=  844 giat=0.170 bam lenh=0.044
+  lead0        n=  191 giat=0.215 bam lenh=0.054
+  lead1        n=   26 giat=0.260 bam lenh=0.063
+
+==============================================================================
+TANG 5 — TAI XE DAP CHAN DE GIANH QUYEN
+==============================================================================
+Tong 8 lan / 14.2 km = 0.6 lan/km
+
+-- dap_phanh: 8 lan
+   luc do: toc do 20 km/h | khoang cach 36 m | headway 5.00s | TTC nho nhat 13.8s
+
+==============================================================================
+TANG 7 — PHANH DUNG XE: som hay muon?
+==============================================================================
+nhom                n  toc do bat dau  quang duong   a can thiet   a thuc te
+Openpilot          12           18.0         16.5m        -0.76       -1.21
+Nguoi lai           5           18.1          7.4m        -1.69       -2.34
+
+  a can thiet = v^2/2d, muc giam toc trung binh bat buoc tu luc bat dau phanh
+  a thuc te   = luc phanh gap nhat da dung den
+  Phanh cang muon => quang duong cang ngan => a can thiet cang am.
+
+  Openpilot: 25% so lan dung phai phanh gap duoi -2 m/s2
+
+==============================================================================
+TANG 6 — BIEN VAN HANH (chi luc Openpilot giu ga)
+==============================================================================
+ vbin  co_radar    n  headway_med  headway_p10  duoi_1s  ttc_p10 du_ket_luan
+  <30     False 6817        4.069        2.262    0.029    4.256          co
+  <30      True 6476        3.558        2.163    0.417    4.926          co
+30-50     False 6038        2.998        1.649    0.861    9.758          co
+30-50      True 4577        2.934        1.532    0.022   12.001          co
+  >50     False  104        1.527        1.292    0.000   11.498          co
+  >50      True    3        0.879        0.870  100.000      NaN  MAU QUA IT
+
+Da ghi CSV vao: /home/bop/learn/1/phan_tich

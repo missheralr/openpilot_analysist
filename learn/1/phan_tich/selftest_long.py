@@ -12,7 +12,7 @@ import sys
 import numpy as np
 
 from oplog import Log
-from long_analysis import true_accel, MIN_LEAD_PROB
+from long_analysis import true_accel, lead_present, MIN_LEAD_PROB
 
 PASS, FAIL = [], []
 
@@ -114,7 +114,7 @@ def nhom_B(path):
     vis, rad = [], []
     for e in rs:
         R = e.radarState.leadOne
-        if not (R.present and R.radar and R.radarTrackId != -1):
+        if not (lead_present(R) and R.radar and R.radarTrackId != -1):
             continue
         m = mv.get(e.radarState.mdMonoTime)
         if m is None or not len(m.leadsV3) or m.leadsV3[0].prob < MIN_LEAD_PROB:

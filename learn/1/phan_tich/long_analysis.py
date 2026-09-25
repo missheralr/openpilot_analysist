@@ -75,6 +75,14 @@ def true_accel(t_ns, v):
     return tu, a, j
 
 
+def lead_present(R):
+    """Ban goc comma dat ten truong nay la 'present', ban fork dat la 'status'.
+    Cung mot du lieu, chi khac ten — nen phai thu ca hai."""
+    if hasattr(R, "present"):
+        return bool(R.present)
+    return bool(R.status)
+
+
 def imu_long_axis(lg, t_ns, a_true):
     """Do truc doc cua gia toc ke bang cach doi chieu voi gia toc tu banh xe.
     Chi dung de KIEM TRA CHEO, khong dung lam dap an."""
@@ -144,7 +152,7 @@ def read_segment(path, route, seg):
         R, t0 = e.radarState.leadOne, e.logMonoTime
         v0 = float(np.interp(t0, cs_t, v))
         on = bool(np.interp(t0, cc_t, long_on.astype(float)) > 0.5)
-        if not R.present:
+        if not lead_present(R):
             continue
         n_lead += 1
         has_radar = bool(R.radar) and R.radarTrackId != -1
@@ -295,7 +303,18 @@ def med(s):
 
 
 def report(lead, foll, comfort, ev, stops, inv, outdir):
-    g = inv[inv.ok == True]
+    g = inv[inv.ok == True] if "ok" in inv.columns else inv
+    if not len(g) or "km_long" not in g.columns:
+        print("\n" + "=" * 78)
+        print("KHONG SEGMENT NAO DOC DUOC — khong co gi de bao cao.")
+        print("=" * 78)
+        if "why" in inv.columns and len(inv):
+            from collections import Counter
+            for ly_do, n in Counter(inv.why.astype(str)).most_common(5):
+                print(f"  {n:3d} segment: {ly_do[:100]}")
+        print("\nNeu ly do la \"no such member; name = present\" thi ban dang chay ban cu;")
+        print("tai lai goi code moi nhat.")
+        return
     km = g.km_long.sum()
 
     print("\n" + "=" * 78)

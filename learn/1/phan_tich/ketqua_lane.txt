@@ -1,0 +1,147 @@
+Tim thay 52 segment tu 1 route: data
+
+  [1/52] data/segment_0: 839 frame, 9 cua so, 0 su kien
+  [2/52] data/segment_1: 934 frame, 6 cua so, 7 su kien
+  [3/52] data/segment_2: 1137 frame, 30 cua so, 5 su kien
+  [4/52] data/segment_3: 1200 frame, 55 cua so, 0 su kien
+  [5/52] data/segment_4: bo qua — IMU khong khop goc lai (corr=0.43)
+  [6/52] data/segment_5: 325 frame, 10 cua so, 1 su kien
+  [7/52] data/segment_6: bo qua — xe gan nhu dung yen
+  [8/52] data/segment_7: 533 frame, 5 cua so, 2 su kien
+  [9/52] data/segment_8: 1200 frame, 55 cua so, 0 su kien
+  [10/52] data/segment_9: 1200 frame, 49 cua so, 1 su kien
+  [11/52] data/segment_10: 868 frame, 29 cua so, 2 su kien
+  [12/52] data/segment_11: 1200 frame, 55 cua so, 0 su kien
+  [13/52] data/segment_12: 878 frame, 37 cua so, 1 su kien
+  [14/52] data/segment_13: 1063 frame, 37 cua so, 4 su kien
+  [15/52] data/segment_14: 1188 frame, 44 cua so, 3 su kien
+  [16/52] data/segment_15: 1200 frame, 54 cua so, 0 su kien
+  [17/52] data/segment_16: bo qua — IMU khong khop goc lai (corr=0.90)
+  [18/52] data/segment_17: 1180 frame, 45 cua so, 8 su kien
+  [19/52] data/segment_18: 1187 frame, 37 cua so, 20 su kien
+  [20/52] data/segment_19: 1200 frame, 38 cua so, 12 su kien
+  [21/52] data/segment_20: 1200 frame, 43 cua so, 8 su kien
+  [22/52] data/segment_21: 1200 frame, 50 cua so, 2 su kien
+  [23/52] data/segment_22: 1200 frame, 50 cua so, 2 su kien
+  [24/52] data/segment_23: 1141 frame, 34 cua so, 4 su kien
+  [25/52] data/segment_24: 1200 frame, 39 cua so, 5 su kien
+  [26/52] data/segment_25: 1181 frame, 42 cua so, 0 su kien
+  [27/52] data/segment_26: 766 frame, 23 cua so, 3 su kien
+  [28/52] data/segment_27: 340 frame, 5 cua so, 0 su kien
+  [29/52] data/segment_28: 1200 frame, 55 cua so, 0 su kien
+  [30/52] data/segment_29: bo qua — IMU khong khop goc lai (corr=0.64)
+  [31/52] data/segment_30: bo qua — xe gan nhu dung yen
+  [32/52] data/segment_31: 479 frame, 17 cua so, 0 su kien
+  [33/52] data/segment_32: 631 frame, 16 cua so, 1 su kien
+  [34/52] data/segment_33: 122 frame, 1 cua so, 0 su kien
+  [35/52] data/segment_34: 861 frame, 36 cua so, 0 su kien
+  [36/52] data/segment_35: 1200 frame, 55 cua so, 0 su kien
+  [37/52] data/segment_36: bo qua — IMU khong khop goc lai (corr=0.65)
+  [38/52] data/segment_37: 716 frame, 21 cua so, 2 su kien
+  [39/52] data/segment_38: 1109 frame, 43 cua so, 1 su kien
+  [40/52] data/segment_39: 775 frame, 25 cua so, 3 su kien
+  [41/52] data/segment_40: 726 frame, 25 cua so, 0 su kien
+  [42/52] data/segment_41: 1200 frame, 43 cua so, 2 su kien
+  [43/52] data/segment_42: 623 frame, 21 cua so, 5 su kien
+  [44/52] data/segment_43: 431 frame, 5 cua so, 5 su kien
+  [45/52] data/segment_44: 1200 frame, 44 cua so, 4 su kien
+  [46/52] data/segment_45: 823 frame, 12 cua so, 10 su kien
+  [47/52] data/segment_46: 817 frame, 32 cua so, 0 su kien
+  [48/52] data/segment_47: 169 frame, 0 cua so, 3 su kien
+  [49/52] data/segment_48: 440 frame, 13 cua so, 0 su kien
+  [50/52] data/segment_49: 917 frame, 9 cua so, 3 su kien
+  [51/52] data/segment_50: 305 frame, 9 cua so, 0 su kien
+  [52/52] data/segment_51: bo qua — xe gan nhu dung yen
+
+Gop su kien: 129 dong tho -> 63 lan can thiep that su
+
+==============================================================================
+TANG 0 — KIEM KE DU LIEU
+==============================================================================
+Segment dung duoc: 45/52
+Thoi gian: 45 phut | quang duong 15.3 km | Openpilot lai 13.5 km (68% thoi gian)
+Toc do median 22 km/h, P90 59 km/h
+So lan nha lai: 81 (6.0 lan/km)
+Nhin thay CA HAI vach (>0.3): 37.2% frame | vach trai 35.1% | vach phai 29.4%
+Do sang (exposure): median 0.045, max 0.440 (co doan toi/dem)
+
+Segment bo qua (7):
+   data/segment_4: IMU khong khop goc lai (corr=0.43)
+   data/segment_6: xe gan nhu dung yen
+   data/segment_16: IMU khong khop goc lai (corr=0.90)
+   data/segment_29: IMU khong khop goc lai (corr=0.64)
+   data/segment_30: xe gan nhu dung yen
+   data/segment_36: IMU khong khop goc lai (corr=0.65)
+   data/segment_51: xe gan nhu dung yen
+
+[kiem tra dau] tuong quan model vs thuc te o moc 2s = +0.937  (can > 0.5)
+
+==============================================================================
+TANG 2 — LANE PREDICTION: model doan quy dao co dung khong?
+==============================================================================
+Dap an = quy dao THUC TE da di (banh xe + IMU), doc lap voi camera/model.
+
+-- NGUOI lai (phep do sach)  n=6534
+   1s: sai so median=0.088m  P90=0.551m  >0.5m: 12.5%  |  yStd=0.102m  ty le=0.92  xep hang=+0.77
+   2s: sai so median=0.245m  P90=1.384m  >0.5m: 33.8%  |  yStd=0.288m  ty le=0.84  xep hang=+0.71
+   3s: sai so median=0.481m  P90=3.012m  >0.5m: 49.2%  |  yStd=0.597m  ty le=0.77  xep hang=+0.74
+   theo quang duong: 10m=0.267m  20m=0.539m  30m=0.520m
+-- OPENPILOT lai (*)  n=33770
+   1s: sai so median=0.031m  P90=0.099m  >0.5m:  0.1%  |  yStd=0.061m  ty le=0.52  xep hang=+0.35
+   2s: sai so median=0.101m  P90=0.280m  >0.5m:  2.7%  |  yStd=0.159m  ty le=0.64  xep hang=+0.26
+   3s: sai so median=0.182m  P90=0.559m  >0.5m: 12.2%  |  yStd=0.274m  ty le=0.68  xep hang=+0.33
+   theo quang duong: 10m=0.049m  20m=0.144m  30m=0.219m
+
+(*) Khi Openpilot lai, xe di theo chinh du doan cua no nen sai so nho hon thuc chat;
+    khong dung con so nay de danh gia do chinh xac du doan.
+
+Do rung quy dao (curv_jitter) median: nguoi lai=0.00044  openpilot lai=0.00010 1/m
+
+==============================================================================
+TANG 3 — LANE KEEPING: xe giu lan co on khong?
+==============================================================================
+Do bang cam bien vat ly, khong can vach ke. Cua so 5 giay.
+
+nhom                             n   vong(m)  doi chieu/ph  accel ngang  giat ngang   bam lenh
+Thang | Openpilot             1033     0.014            96        0.146        2.39    0.00039
+Thang | Nguoi                   56     0.019            48        0.165        2.07    0.00000
+Cua   | Openpilot              209     0.038           144        0.190        2.59    0.00105
+Cua   | Nguoi                   65     0.173            36        0.394        2.81    0.00000
+
+  vong(m)      = bien do danh vong trong 5s (da loai do cong cua duong)
+  bam lenh     = |desiredCurvature - do cong thuc| (chi co nghia khi Openpilot lai)
+
+Tuong quan (khi Openpilot lai): danh vong ~ toc do +0.02 | ~ do cong +0.49 | ~ nhin thay vach -0.26
+
+==============================================================================
+TANG 4 — SU KIEN NGUOI CAN THIEP va dau hieu 3 giay truoc do
+==============================================================================
+Tong: 63 lan can thiep / 13.5 km lai tu dong = 4.7 lan/km
+(day vo lang va nha lai cach nhau vai mili-giay la MOT lan, da gop)
+Doi chieu: 81 lan nha lai dem tho tren tin hieu goc.
+
+Dau hieu 3 giay truoc, so voi nen CUNG DAI TOC DO (+-3 km/h), n=48:
+  dau hieu                truoc can thiep  nen cung toc do    ty le
+  yStd_2s > 0.4m                    31.2%            12.1%    2.59x
+  mat vach (<0.3)                   70.8%            54.2%    1.31x
+  dang vao cua                      50.0%            36.8%    1.36x
+
+==============================================================================
+TANG 5 — BAN DO BIEN VAN HANH (chi tinh luc Openpilot lai)
+==============================================================================
+ vbin shape     lane  n_frame  err_2s  err_2s_p90  ystd_2s  n_win  weave  track du_ket_luan
+  <30   cua  co vach     1929  0.1274      0.3914   0.1763     32 0.0373 0.0014          co
+  <30   cua mat vach     4368  0.1890      0.6916   0.2867     90 0.0396 0.0012          co
+  <30 thang  co vach     6767  0.0743      0.1579   0.1358    269 0.0116 0.0004          co
+  <30 thang mat vach     6336  0.0697      0.1633   0.1736    236 0.0182 0.0006          co
+30-50   cua  co vach     1757  0.2650      0.4344   0.1649     73 0.0301 0.0010          co
+30-50   cua mat vach      259  0.2089      0.6014   0.3320      8 0.0553 0.0006          co
+30-50 thang  co vach    10849  0.1088      0.2068   0.1364    477 0.0133 0.0003          co
+30-50 thang mat vach     1005  0.1344      0.2368   0.2705     32 0.0296 0.0003          co
+  >50   cua  co vach      126  0.3879      0.4882   0.2082      6 0.0852 0.0009          co
+  >50 thang  co vach      319  0.0826      0.2970   0.1724     16 0.0549 0.0002          co
+  >50 thang mat vach       55  0.1070      0.1841   0.3100      3 0.0574 0.0002  MAU QUA IT
+
+Da luu 30 doan dang xem lai -> 05_clips.csv
+
+Da ghi cac file CSV vao: /home/bop/learn/1/phan_tich

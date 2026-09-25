@@ -1,0 +1,9 @@
+route,segment,kind,t,v_kmh,headway_s,ttc_s,d_rel,plan_src,co_du_lieu_truoc
+data,segment_22,dap_phanh,12468777173889,19.3,7.04,,37.1,e2e,True
+data,segment_24,dap_phanh,12599176576452,28.4,6.36,15.91,50.7,e2e,True
+data,segment_29,dap_phanh,12867272584415,39.0,4.35,13.8,47.7,e2e,True
+data,segment_39,dap_phanh,13514464281534,12.7,,,,,False
+data,segment_41,dap_phanh,13590173299574,20.2,5.65,4.13,34.9,cruise,True
+data,segment_43,dap_phanh,13751263381293,18.1,2.48,14.71,12.9,lead0,True
+data,segment_45,dap_phanh,13875769930918,12.6,2.69,3.21,13.0,e2e,True
+data,segment_47,dap_phanh,13999665036612,4.8,,,,,False
